@@ -4,7 +4,7 @@
 #include "lists.h"
 
 /**
- * main - check the code for Holberton School students.
+ * main - create list and test insert at end of list
  *
  * Return: Always 0.
  */
@@ -25,7 +25,7 @@ int main(void)
 
     printf("-----------------\n");
 
-    insert_node(&head, 27);
+    insert_node(&head, 5727);
 
     print_listint(head);
 
