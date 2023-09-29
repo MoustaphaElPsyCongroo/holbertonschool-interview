@@ -16,7 +16,7 @@ format: <status code>: <number>
 status codes should be printed in ascending order
 """
 import sys
-from typing import Tuple
+from typing import Tuple, Dict
 import re
 from dateutil.parser import parse
 
@@ -102,7 +102,7 @@ def clear_stats():
     globals()["total_size"] = 0
 
 
-def print_stats(status_codes, total_size: int) -> None:
+def print_stats(status_codes: Dict[int, int], total_size: int) -> None:
     """Prints total_size followed by each status_code > 0"""
     if total_size > 0:
         print(f"File size: {total_size}")
