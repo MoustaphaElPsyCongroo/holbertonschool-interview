@@ -1,6 +1,9 @@
 #!/usr/bin/python3
 
-"""Reads stdin line by line and computes metrics"""
+"""
+Reads stdin line by line and computes metrics
+"""
+
 
 import sys
 from typing import Tuple, Dict
