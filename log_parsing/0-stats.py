@@ -1,5 +1,6 @@
 #!/usr/bin/python3
-"""Write a script that reads stdin line by line and computes metrics:
+"""
+Write a script that reads stdin line by line and computes metrics:
 
 Input format: <IP Address> - [<date>] "GET /projects/260 HTTP/1.1" <status
 code> <file size> (if the format is not this one, the line must be skipped)
@@ -105,13 +106,13 @@ def clear_stats():
 def print_stats(status_codes: Dict[int, int], total_size: int) -> None:
     """Prints total_size followed by each status_code > 0"""
     if total_size > 0:
-        print(f"File size: {total_size}")
+        print("File size: {}".format(total_size))
 
     for status_code_data in status_codes.items():
         code = status_code_data[0]
         occurences = status_code_data[1]
         if occurences > 0:
-            print(f"{code}: {occurences}")
+            print("{}: {}".format(code, occurences))
 
 
 i = 0
