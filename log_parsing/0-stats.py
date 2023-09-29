@@ -77,19 +77,19 @@ def is_valid_format(line: str) -> Tuple[bool, int, int]:
     return (True, int(status_code), int(file_size))
 
 
-def clear_stats():
-    """Restores all stats to default (0)"""
-    globals()["status_codes"] = {
-        200: 0,
-        301: 0,
-        400: 0,
-        401: 0,
-        403: 0,
-        404: 0,
-        405: 0,
-        500: 0
-    }
-    globals()["total_size"] = 0
+# def clear_stats():
+#     """Restores all stats to default (0)"""
+#     globals()["status_codes"] = {
+#         200: 0,
+#         301: 0,
+#         400: 0,
+#         401: 0,
+#         403: 0,
+#         404: 0,
+#         405: 0,
+#         500: 0
+#     }
+#     globals()["total_size"] = 0
 
 
 def print_stats(status_codes: Dict[int, int], total_size: int) -> None:
@@ -121,7 +121,17 @@ if __name__ == "__main__":
 
             if i != 0 and i % 10 == 0:
                 print_stats(status_codes, total_size)
-                clear_stats()
+                status_codes = {
+                    200: 0,
+                    301: 0,
+                    400: 0,
+                    401: 0,
+                    403: 0,
+                    404: 0,
+                    405: 0,
+                    500: 0
+                }
+                total_size = 0
 
             i += 1
         except KeyboardInterrupt:
