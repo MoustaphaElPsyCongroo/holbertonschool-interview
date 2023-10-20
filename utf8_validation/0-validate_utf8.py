@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-Main file
+Determines if a given data set represents a valid UTF-8 encoding
 """
 
 
