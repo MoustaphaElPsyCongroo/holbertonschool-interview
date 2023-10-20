@@ -1,5 +1,7 @@
 #!/usr/bin/python3
-"""Determines if a given data set represents a valid UTF-8 encoding"""
+"""
+Determines if a given data set represents a valid UTF-8 encoding
+"""
 from typing import List
 
 
