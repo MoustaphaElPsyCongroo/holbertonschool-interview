@@ -1,30 +1,26 @@
 #!/usr/bin/python3
 """
-Determines if a given data set represents a valid UTF-8 encoding
+Main file
 """
-from typing import List
 
 
-def validUTF8(data: List[int]) -> bool:
-    """Returns true if data is a valid utf-8 encoding"""
-    bytes_nb = 0
+def validUTF8(data):
+    bit = 0
 
-    for num in data:
-        if bytes_nb == 0:
-            if num < 128:
-                bytes_nb = 0
-            elif 192 <= num < 224:
-                bytes_nb = 1
-            elif 224 <= num < 240:
-                bytes_nb = 2
-            elif 240 <= num < 248:
-                bytes_nb = 3
-            else:
+    for elem in data:
+        if bit > 0:
+            bit -= 1
+            if (((elem & 255) >> 6) != 2):
                 return False
+        elif (elem & 128) == 0:
+            bit = 0
+        elif (elem & 224) == 192:
+            bit = 1
+        elif (elem & 240) == 224:
+            bit = 2
+        elif (elem & 248) == 240:
+            bit = 3
         else:
-            if 128 <= num < 192:
-                bytes_nb -= 1
-            else:
-                return False
+            return False
 
-    return bytes_nb == 0
+    return not bit
